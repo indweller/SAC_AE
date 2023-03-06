@@ -14,7 +14,6 @@ class Encoder(nn.Module):
     def forward(self, input):
         ninput = input / 255.0
         c1 = F.relu(self.conv1(ninput))
-        print(c1.shape)
         c2 = F.relu(self.conv2(c1))
         flat_c2 = torch.flatten(c2)
         l1 = self.linear(flat_c2)
